@@ -1,9 +1,6 @@
 package com.example.BookStore.controller;
 
-import com.example.BookStore.model.BookDto;
-import com.example.BookStore.model.BookListing;
-import com.example.BookStore.model.BookWithDetails;
-import com.example.BookStore.model.SearchFilters;
+import com.example.BookStore.model.*;
 import com.example.BookStore.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
@@ -60,7 +57,7 @@ public class BookController {
     }
 
     @GetMapping("/{bookId}/details")
-    public BookWithDetails getBookWithDetailsById(@PathVariable String bookId) {
-        return bookService.getBookWithDetails(bookId);
+    public BookWithDetailsDto getBookWithDetailsById(@PathVariable String bookId) {
+        return BookWithDetailsDto.fromDomain(bookService.getBookWithDetails(bookId));
     }
 }

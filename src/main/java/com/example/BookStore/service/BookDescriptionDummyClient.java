@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 @Service("bookDescriptionDummy")
-@Profile({"dev", "test"})
+@Profile({"dev"})
 public class BookDescriptionDummyClient implements BookDescriptionClient {
     @Override
     public String getDescription(String bookId) {
